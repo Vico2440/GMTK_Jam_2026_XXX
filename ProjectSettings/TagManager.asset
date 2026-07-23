@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Obstacles
+  - Interactable
+  - Enemy
+  - TriggerZone
   - 
   - 
   - 
@@ -38,6 +38,23 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2754048149
+    locked: 0
+  - name: Deco_Sol
+    uniqueID: 1252979187
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Deco_Murale
+    uniqueID: 2232236147
+    locked: 0
+  - name: Foreground
+    uniqueID: 523741923
+    locked: 0
+  - name: UI
+    uniqueID: 3875761245
+    locked: 0
+  m_RenderingLayers:
+  - Default
