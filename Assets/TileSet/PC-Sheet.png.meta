@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: ea49f282403fac44b9fd8c3bc4fe80b7
+guid: 61e5cbe1c121e984390ad0eaa194721a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6091706668691328248
-    second: tile_0120_0
+      213: 9026316647071643955
+    second: PC-Sheet_0
+  - first:
+      213: 6750417463414248305
+    second: PC-Sheet_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,12 +103,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tile_0120_0
+      name: PC-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 15
+        y: 34
+        width: 11
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8fc893f90f61a8450800000000000000
-      internalID: 6091706668691328248
+      spriteID: 33976e2ca2be34d70800000000000000
+      internalID: 9026316647071643955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 12
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1735660faec4ead50800000000000000
+      internalID: 6750417463414248305
       vertices: []
       indices: 
       edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tile_0120_0: 6091706668691328248
+      PC-Sheet_0: 9026316647071643955
+      PC-Sheet_1: 6750417463414248305
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
