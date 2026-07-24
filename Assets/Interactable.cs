@@ -3,52 +3,53 @@ using DG.Tweening;
 
 public class Interactable : MonoBehaviour
 {
-    [Header("Dialogue")]
-    [TextArea(3, 5)]
-    [SerializeField] private string dialogueLine = "Insert Text Line";
+    [Header("Indicateur d'Interaction (UI)")]
+    [SerializeField] private GameObject interactionPrompt;
+    [SerializeField] private float animDuration = 0.25f;
 
-    [Header("Animation DOTween")]
+    [Header("Animation Bounce au Clic")]
     [SerializeField] private float bounceScale = 1.15f;
     [SerializeField] private float bounceDuration = 0.2f;
 
     private bool isPlayerInZone = false;
-    private Vector3 originalScale;
-    private Tween activeTween;
+    private bool isInteracting = false;
+    private Vector3 originalObjectScale;
+    private Vector3 originalPromptScale;
+    private Tween activeObjectTween;
+    private Tween activePromptTween;
 
     private void Awake()
     {
-        originalScale = transform.localScale;
+        originalObjectScale = transform.localScale;
+
+        if (interactionPrompt != null)
+        {
+            originalPromptScale = interactionPrompt.transform.localScale;
+            interactionPrompt.transform.localScale = Vector3.zero;
+            interactionPrompt.SetActive(false);
+        }
     }
 
     public void Interact()
     {
         if (!isPlayerInZone) return;
 
-        AnimateBounce();
+        AnimateObjectBounce();
 
-        if (DialogueManager.Instance != null)
+        var action = GetComponent<IInteractableAction>();
+
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive())
         {
-            if (DialogueManager.Instance.IsDialogueActive())
-            {
-                DialogueManager.Instance.CloseDialogue();
-            }
-            else
-            {
-                DialogueManager.Instance.StartDialogue(dialogueLine);
-            }
+            DialogueManager.Instance.CloseDialogue();
+            isInteracting = false;
+            ShowPrompt();
         }
-    }
-
-    private void AnimateBounce()
-    {
-        if (activeTween != null && activeTween.IsActive())
+        else
         {
-            activeTween.Kill();
-            transform.localScale = originalScale;
+            isInteracting = true;
+            HidePrompt();
+            action?.ExecuteAction();
         }
-
-        activeTween = transform.DOPunchScale(originalScale * (bounceScale - 1f), bounceDuration, elasticity: 0.5f)
-            .OnComplete(() => transform.localScale = originalScale);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -57,6 +58,11 @@ public class Interactable : MonoBehaviour
         {
             isPlayerInZone = true;
             collision.GetComponent<PlayerController>()?.SetCurrentInteractable(this);
+
+            if (!isInteracting)
+            {
+                ShowPrompt();
+            }
         }
     }
 
@@ -65,12 +71,55 @@ public class Interactable : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerInZone = false;
+            isInteracting = false;
             collision.GetComponent<PlayerController>()?.SetCurrentInteractable(null);
+
+            HidePrompt();
 
             if (DialogueManager.Instance != null)
             {
                 DialogueManager.Instance.CloseDialogue();
             }
         }
+    }
+
+
+    private void ShowPrompt()
+    {
+        if (interactionPrompt == null) return;
+
+        interactionPrompt.SetActive(true);
+
+        if (activePromptTween != null && activePromptTween.IsActive())
+            activePromptTween.Kill();
+
+        activePromptTween = interactionPrompt.transform
+            .DOScale(originalPromptScale, animDuration)
+            .SetEase(Ease.OutBack);
+    }
+
+    private void HidePrompt()
+    {
+        if (interactionPrompt == null) return;
+
+        if (activePromptTween != null && activePromptTween.IsActive())
+            activePromptTween.Kill();
+
+        activePromptTween = interactionPrompt.transform
+            .DOScale(Vector3.zero, animDuration)
+            .SetEase(Ease.InBack)
+            .OnComplete(() => interactionPrompt.SetActive(false));
+    }
+
+    private void AnimateObjectBounce()
+    {
+        if (activeObjectTween != null && activeObjectTween.IsActive())
+        {
+            activeObjectTween.Kill();
+            transform.localScale = originalObjectScale;
+        }
+
+        activeObjectTween = transform.DOPunchScale(originalObjectScale * (bounceScale - 1f), bounceDuration, elasticity: 0.5f)
+            .OnComplete(() => transform.localScale = originalObjectScale);
     }
 }
