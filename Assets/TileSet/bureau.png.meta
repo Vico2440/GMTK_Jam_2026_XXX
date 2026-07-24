@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ea49f282403fac44b9fd8c3bc4fe80b7
+guid: 8f772c8e9d04c244c8f4db6387cebbdc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6091706668691328248
-    second: tile_0120_0
+      213: 6117688389378423592
+    second: bureau_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tile_0120_0
+      name: bureau_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 15
-        height: 16
+        width: 16
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8fc893f90f61a8450800000000000000
-      internalID: 6091706668691328248
+      spriteID: 82bbe6f5d2566e450800000000000000
+      internalID: 6117688389378423592
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tile_0120_0: 6091706668691328248
+      bureau_0: 6117688389378423592
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
