@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f7470c393418aec45a33b11347d6f75a
+guid: 8f369db4764c03942bb7d31c7f2d7cf9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4940409031612139697
-    second: tile_0604_0
+      213: -5050531503685480916
+    second: frigo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tile_0604_0
+      name: frigo_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 12
-        height: 12
+        x: 0
+        y: 0
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4770a14924207bb0800000000000000
-      internalID: -4940409031612139697
+      spriteID: c2e48e33b58e8e9b0800000000000000
+      internalID: -5050531503685480916
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tile_0604_0: -4940409031612139697
+      frigo_0: -5050531503685480916
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

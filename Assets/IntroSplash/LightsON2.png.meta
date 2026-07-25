@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: f7470c393418aec45a33b11347d6f75a
+guid: 564dccc45dfa63f46857cf6011bb0600
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4940409031612139697
-    second: tile_0604_0
+      213: -6621395199428878354
+    second: LightsON2_0
+  - first:
+      213: -90362750756319994
+    second: LightsON2_1
+  - first:
+      213: 3180094162908334475
+    second: LightsON2_2
+  - first:
+      213: -2745982744173428655
+    second: LightsON2_3
+  - first:
+      213: -4261719096139688023
+    second: LightsON2_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tile_0604_0
+      name: LightsON2_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 12
-        height: 12
+        x: 0
+        y: 19
+        width: 13
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4770a14924207bb0800000000000000
-      internalID: -4940409031612139697
+      spriteID: eef9094d5241c14a0800000000000000
+      internalID: -6621395199428878354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightsON2_1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 19
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60d0e349e87febef0800000000000000
+      internalID: -90362750756319994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightsON2_2
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 19
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b89c174dac6f12c20800000000000000
+      internalID: 3180094162908334475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightsON2_3
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 19
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 150c0363e3f44e9d0800000000000000
+      internalID: -2745982744173428655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightsON2_4
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 19
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a75816cf055bd4c0800000000000000
+      internalID: -4261719096139688023
       vertices: []
       indices: 
       edges: []
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tile_0604_0: -4940409031612139697
+      LightsON2_0: -6621395199428878354
+      LightsON2_1: -90362750756319994
+      LightsON2_2: 3180094162908334475
+      LightsON2_3: -2745982744173428655
+      LightsON2_4: -4261719096139688023
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

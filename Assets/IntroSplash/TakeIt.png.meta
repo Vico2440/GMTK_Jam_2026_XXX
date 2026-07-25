@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: f7470c393418aec45a33b11347d6f75a
+guid: 45c533a5c6a9d3143b7f7db397e864b0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4940409031612139697
-    second: tile_0604_0
+      213: -1734267075028689867
+    second: TakeIt_0
+  - first:
+      213: 6469035332174713684
+    second: TakeIt_1
+  - first:
+      213: 5138717853833166942
+    second: TakeIt_2
+  - first:
+      213: 5338578541529922417
+    second: TakeIt_3
+  - first:
+      213: 7456555646414312141
+    second: TakeIt_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tile_0604_0
+      name: TakeIt_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 12
-        height: 12
+        x: 0
+        y: 15
+        width: 16
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4770a14924207bb0800000000000000
-      internalID: -4940409031612139697
+      spriteID: 53c5247a845aee7e0800000000000000
+      internalID: -1734267075028689867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TakeIt_1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 15
+        width: 46
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45399b53c51a6c950800000000000000
+      internalID: 6469035332174713684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TakeIt_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 15
+        width: 10
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e500fa679a4605740800000000000000
+      internalID: 5138717853833166942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TakeIt_3
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 15
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17bf96506e0761a40800000000000000
+      internalID: 5338578541529922417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TakeIt_4
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 15
+        width: 7
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc255789ad10b7760800000000000000
+      internalID: 7456555646414312141
       vertices: []
       indices: 
       edges: []
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tile_0604_0: -4940409031612139697
+      TakeIt_0: -1734267075028689867
+      TakeIt_1: 6469035332174713684
+      TakeIt_2: 5138717853833166942
+      TakeIt_3: 5338578541529922417
+      TakeIt_4: 7456555646414312141
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PCAction : MonoBehaviour, IInteractableAction
 {
@@ -11,11 +12,25 @@ public class PCAction : MonoBehaviour, IInteractableAction
     private void Awake()
     {
         playerController = FindFirstObjectByType<PlayerController>();
-        pc_ui.SetActive(false);
+        if (pc_ui != null) pc_ui.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (isUsingPC && HasAnyActiveCrisis())
+        {
+            ForceClosePC();
+        }
     }
 
     public void ExecuteAction()
     {
+        if (HasAnyActiveCrisis())
+        {
+            Debug.Log(">>> Impossible d'utiliser le PC : Il y a des pannes à régler !");
+            return; 
+        }
+
         if (isUsingPC == false)
         {
             pc_ui.SetActive(true);
@@ -43,19 +58,38 @@ public class PCAction : MonoBehaviour, IInteractableAction
     }
 
     /// <summary>
-    /// Sécurité si le joueur est forcé de quitter la zone sans ré-interagir
+    /// Force la fermeture du PC et redonne le contrôle au joueur
     /// </summary>
+    private void ForceClosePC()
+    {
+        isUsingPC = false;
+        if (pc_ui != null) pc_ui.SetActive(false);
+        
+        PresenceManager.Instance?.SetPlayerAtPC(false);
+
+        if (playerController != null)
+        {
+            playerController.enabled = true;
+        }
+
+        Debug.Log(">>> ALARME ! Éjection forcée du PC à cause d'une crise !");
+    }
+
+    /// <summary>
+    /// Vérifie si au moins un mini-jeu / crise est en cours
+    /// </summary>
+    private bool HasAnyActiveCrisis()
+    {
+        if (CrisisManager.Instance == null) return false;
+
+        return CrisisManager.Instance.IsAnyCrisisActive();
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && isUsingPC)
         {
-            isUsingPC = false;
-            PresenceManager.Instance?.SetPlayerAtPC(false);
-
-            if (playerController != null)
-            {
-                playerController.enabled = true;
-            }
+            ForceClosePC();
         }
     }
 }

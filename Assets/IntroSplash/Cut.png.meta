@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: f7470c393418aec45a33b11347d6f75a
+guid: 9bbf8139e8360c34687bf542ca40da78
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4940409031612139697
-    second: tile_0604_0
+      213: 1509163340474212072
+    second: Cut_0
+  - first:
+      213: 3420901247331605307
+    second: Cut_1
+  - first:
+      213: -8550949073526619542
+    second: Cut_2
+  - first:
+      213: -3530373137291384134
+    second: Cut_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tile_0604_0
+      name: Cut_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 12
-        height: 12
+        x: 0
+        y: 15
+        width: 70
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4770a14924207bb0800000000000000
-      internalID: -4940409031612139697
+      spriteID: 8eed101ff00a1f410800000000000000
+      internalID: 1509163340474212072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cut_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 15
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3b14ea4f8b797f20800000000000000
+      internalID: 3420901247331605307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cut_2
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 23
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a628dfb5f1de45980800000000000000
+      internalID: -8550949073526619542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cut_3
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 15
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aba6a2b1658910fc0800000000000000
+      internalID: -3530373137291384134
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tile_0604_0: -4940409031612139697
+      Cut_0: 1509163340474212072
+      Cut_1: 3420901247331605307
+      Cut_2: -8550949073526619542
+      Cut_3: -3530373137291384134
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

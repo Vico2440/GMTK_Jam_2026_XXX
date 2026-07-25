@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: f7470c393418aec45a33b11347d6f75a
+guid: 6971c64e37972ab4eba71334d71d8a80
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4940409031612139697
-    second: tile_0604_0
+      213: 4348363913834367784
+    second: valve_0
+  - first:
+      213: 443976429453424862
+    second: valve_1
+  - first:
+      213: 6480969127443375628
+    second: valve_2
+  - first:
+      213: -1470270850524568224
+    second: valve_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +109,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tile_0604_0
+      name: valve_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 12
-        height: 12
+        x: 0
+        y: 30
+        width: 48
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4770a14924207bb0800000000000000
-      internalID: -4940409031612139697
+      spriteID: 82b8936e0fd785c30800000000000000
+      internalID: 4348363913834367784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: valve_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 18
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed8b736d532592600800000000000000
+      internalID: 443976429453424862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: valve_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 10
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c062981751701f950800000000000000
+      internalID: 6480969127443375628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: valve_3
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 11
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0652fd6837c889be0800000000000000
+      internalID: -1470270850524568224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: valve_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 14
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58bad8b7432ce3c45aa0d4bfb1d8785c
+      internalID: -298332193
       vertices: []
       indices: 
       edges: []
@@ -125,7 +222,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: a2df9591593c5fc44b3e7dab1767b875
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +232,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tile_0604_0: -4940409031612139697
+      valve_0: 4348363913834367784
+      valve_1: 443976429453424862
+      valve_2: 6480969127443375628
+      valve_3: -1470270850524568224
+      valve_4: -298332193
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

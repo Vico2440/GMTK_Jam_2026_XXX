@@ -85,4 +85,16 @@ public class CrisisManager : MonoBehaviour
             Debug.Log($"[CrisisManager] Problème '{crisisID}' réparé !");
         }
     }
+    
+    public bool IsAnyCrisisActive()
+    {
+        foreach (var crisis in activeCrises)
+        {
+            if (crisis.Value == true) 
+            {
+                return true;
+            }
+        }
+        return false; 
+    }
 }
