@@ -6,6 +6,7 @@ public class Interactable : MonoBehaviour
     [Header("Indicateur d'Interaction (UI)")]
     [SerializeField] private GameObject interactionPrompt;
     [SerializeField] private float animDuration = 0.25f;
+    [SerializeField] private Vector3 promptTargetScale = Vector3.one; // (1,1,1) par défaut
 
     [Header("Animation Bounce au Clic")]
     [SerializeField] private float bounceScale = 1.15f;
@@ -20,7 +21,7 @@ public class Interactable : MonoBehaviour
 
     private void Awake()
     {
-        originalObjectScale = transform.localScale;
+        originalObjectScale = transform.localScale; 
 
         if (interactionPrompt != null)
         {
@@ -88,13 +89,14 @@ public class Interactable : MonoBehaviour
     {
         if (interactionPrompt == null) return;
 
+
         interactionPrompt.SetActive(true);
 
         if (activePromptTween != null && activePromptTween.IsActive())
             activePromptTween.Kill();
 
         activePromptTween = interactionPrompt.transform
-            .DOScale(originalPromptScale, animDuration)
+            .DOScale(promptTargetScale, animDuration)
             .SetEase(Ease.OutBack);
     }
 
@@ -102,14 +104,23 @@ public class Interactable : MonoBehaviour
     {
         if (interactionPrompt == null) return;
 
+
         if (activePromptTween != null && activePromptTween.IsActive())
             activePromptTween.Kill();
 
         activePromptTween = interactionPrompt.transform
             .DOScale(Vector3.zero, animDuration)
             .SetEase(Ease.InBack)
-            .OnComplete(() => interactionPrompt.SetActive(false));
+            .OnComplete(() => 
+            {
+                if (!isPlayerInZone || isInteracting) 
+                {
+                    interactionPrompt.SetActive(false);
+                }
+            });
     }
+
+    
 
     private void AnimateObjectBounce()
     {

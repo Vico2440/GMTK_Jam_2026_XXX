@@ -4,19 +4,31 @@ public class MinigameAction : MonoBehaviour, IInteractableAction
 {
     [SerializeField] private string minigameID = "BoxWifi"; 
     
-    [Header("Visuel Alerte (Optionnel)")]
-    [Tooltip("Ex: Un petit icône rouge au dessus de l'objet")]
-    [SerializeField] private GameObject alertIcon; 
+    [Header("Visuel Alerte (Prefab)")]
+    [Tooltip("Le Prefab de ton icône d'alerte")]
+    [SerializeField] private GameObject alertPrefab; 
+    
+    [Tooltip("L'endroit exact où l'icône doit apparaître (Objet vide)")]
+    [SerializeField] private Transform alertSpawnPoint;
+
+    private GameObject spawnedAlert; 
 
     private void Update()
     {
-        if (alertIcon != null && CrisisManager.Instance != null)
+        if (alertPrefab != null && CrisisManager.Instance != null)
         {
             bool isBroken = CrisisManager.Instance.IsCrisisActive(minigameID);
             
-            if (alertIcon.activeSelf != isBroken)
+            if (isBroken && spawnedAlert == null)
             {
-                alertIcon.SetActive(isBroken);
+                Transform spawnParent = alertSpawnPoint != null ? alertSpawnPoint : transform;
+                
+                spawnedAlert = Instantiate(alertPrefab, spawnParent.position, Quaternion.identity, spawnParent);
+            }
+            else if (!isBroken && spawnedAlert != null)
+            {
+                Destroy(spawnedAlert);
+                spawnedAlert = null; 
             }
         }
     }

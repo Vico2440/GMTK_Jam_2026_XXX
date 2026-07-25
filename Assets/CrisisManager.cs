@@ -7,13 +7,15 @@ public class CrisisManager : MonoBehaviour
 
     [Header("Configuration des Pannes")]
     [Tooltip("Liste de tous les IDs de mini-jeux qui peuvent tomber en panne")]
-    [SerializeField] private List<string> allPossibleCrises = new List<string> { "BoxWifi", "TunaCan"};
+    [SerializeField] private List<string> allPossibleCrises = new List<string> { "BoxWifi", "TunaCan" };
     
     [SerializeField] private float minTimeBetweenCrises = 5f;
     [SerializeField] private float maxTimeBetweenCrises = 15f;
 
     private Dictionary<string, bool> activeCrises = new Dictionary<string, bool>();
     private float timer;
+
+    private string lastCrisis = "";
 
     private void Awake()
     {
@@ -41,7 +43,6 @@ public class CrisisManager : MonoBehaviour
 
     private void TriggerRandomCrisis()
     {
-        
         List<string> availableCrises = new List<string>();
         foreach (var crisis in activeCrises)
         {
@@ -50,18 +51,24 @@ public class CrisisManager : MonoBehaviour
 
         if (availableCrises.Count == 0) return;
 
+        if (availableCrises.Count > 1 && !string.IsNullOrEmpty(lastCrisis))
+        {
+            availableCrises.Remove(lastCrisis);
+        }
+
         string randomCrisis = availableCrises[Random.Range(0, availableCrises.Count)];
+        
         activeCrises[randomCrisis] = true;
+        
+        lastCrisis = randomCrisis;
 
         Debug.Log($"[CrisisManager] ALARME ! L'événement '{randomCrisis}' vient de se déclencher !");
-        
     }
 
     private void ResetTimer()
     {
         timer = Random.Range(minTimeBetweenCrises, maxTimeBetweenCrises);
     }
-
 
     public bool IsCrisisActive(string crisisID)
     {
