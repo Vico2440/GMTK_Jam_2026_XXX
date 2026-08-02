@@ -5,6 +5,7 @@ public class Staircase : MonoBehaviour
 {
     [Header("Destination")]
     [SerializeField] private StairPoint targetStairPoint;
+    [SerializeField] private int floorDestination;
 
     [Header("Caméra Cinemachine")]
     [SerializeField] private CinemachineCamera virtualCamera;
@@ -22,6 +23,8 @@ public class Staircase : MonoBehaviour
 
     public void UseStaircase(Transform playerTransform)
     {
+        PlayerCrisisPointers.Instance.SetPlayerFloor(floorDestination);
+        
         if (targetStairPoint == null || playerTransform == null) return;
 
         nextAllowedTeleportTime = Time.time + cooldownDelay;

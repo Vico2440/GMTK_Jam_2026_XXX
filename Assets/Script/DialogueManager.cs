@@ -41,8 +41,11 @@ public class DialogueManager : MonoBehaviour
         if (activeTween != null && activeTween.IsActive()) activeTween.Kill();
 
         Sequence openSeq = DOTween.Sequence();
-        openSeq.Join(dialogueCanvasGroup.DOFade(1f, fadeDuration));
-        openSeq.Join(dialoguePanel.transform.DOScale(Vector3.one, fadeDuration).SetEase(Ease.OutBack));
+        openSeq.Join(dialogueCanvasGroup.DOFade(1f, fadeDuration).SetUpdate(true));
+        openSeq.Join(dialoguePanel.transform.DOScale(Vector3.one, fadeDuration).SetEase(Ease.OutBack).SetUpdate(true));
+        
+        openSeq.SetUpdate(true);
+        
         activeTween = openSeq;
 
         if (typingCoroutine != null)
@@ -58,7 +61,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSecondsRealtime(typingSpeed);
         }
     }
 
@@ -71,8 +74,8 @@ public class DialogueManager : MonoBehaviour
         if (activeTween != null && activeTween.IsActive()) activeTween.Kill();
 
         Sequence closeSeq = DOTween.Sequence();
-        closeSeq.Join(dialogueCanvasGroup.DOFade(0f, fadeDuration));
-        closeSeq.Join(dialoguePanel.transform.DOScale(Vector3.one * 0.9f, fadeDuration).SetEase(Ease.InBack));
+        closeSeq.Join(dialogueCanvasGroup.DOFade(0f, fadeDuration).SetUpdate(true));
+        closeSeq.Join(dialoguePanel.transform.DOScale(Vector3.one * 0.9f, fadeDuration).SetEase(Ease.InBack).SetUpdate(true));
         closeSeq.OnComplete(() =>
         {
             dialoguePanel.SetActive(false);

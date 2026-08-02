@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class PresenceManager : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class PresenceManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private Image presenceBarFill;  
+    
+    [Header("Game Over")]
+    public UnityEvent onGameOver;
+    
+    [SerializeField] private string textGameOver = "You are fired !";
 
     private bool isAtPC = false;
     private bool isGameOver = false;
@@ -44,6 +50,8 @@ public class PresenceManager : MonoBehaviour
                 TriggerGameOver();
             }
         }
+        
+        
 
         UpdateUI();
     }
@@ -72,12 +80,20 @@ public class PresenceManager : MonoBehaviour
     private void TriggerGameOver()
     {
         isGameOver = true;
-        Debug.Log("GAME OVER : Le Boss s'est rendu compte de ton absence !");
         
         if (presenceBarFill != null)
         {
             presenceBarFill.transform.DOShakePosition(0.5f, strength: 10f);
         }
+        
+        if (DialogueManager.Instance != null)
+        {
+            DialogueManager.Instance.StartDialogue(textGameOver);
+        }
+        
+        SurvivalTimer.Instance.StopTimerAndDisplay();
+        
+        onGameOver?.Invoke();
 
     }
 

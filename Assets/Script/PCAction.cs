@@ -27,13 +27,16 @@ public class PCAction : MonoBehaviour, IInteractableAction
     {
         if (HasAnyActiveCrisis())
         {
-            Debug.Log(">>> Impossible d'utiliser le PC : Il y a des pannes à régler !");
             return; 
         }
 
         if (isUsingPC == false)
         {
             pc_ui.SetActive(true);
+            
+            int nombreAleatoire = Random.Range(1, 4);
+            
+            SoundManager.Instance.PlaySound("Visio" + nombreAleatoire);
         }
         else
         {
@@ -72,7 +75,7 @@ public class PCAction : MonoBehaviour, IInteractableAction
             playerController.enabled = true;
         }
 
-        Debug.Log(">>> ALARME ! Éjection forcée du PC à cause d'une crise !");
+        SoundManager.Instance.StopAllSounds();
     }
 
     /// <summary>

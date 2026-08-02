@@ -1,0 +1,155 @@
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using DG.Tweening;
+using TMPro;
+
+public class BombMiniGame : MonoBehaviour
+{
+    [System.Serializable]
+    public class Wire
+    {
+        public string colorName;      
+        public Color textColor;       
+        public Button wireButton;     
+        public Image wireImage;       
+        public Sprite uncutSprite;    
+        public Sprite cutSprite;      
+        
+        [HideInInspector] public bool isCut;
+        [HideInInspector] public bool mustBeCut;
+    }
+
+    [Header("Configuration")]
+    [SerializeField] private string minigameID = "Bombe";
+    
+    [Header("UI Elements")]
+    [SerializeField] private TextMeshProUGUI instructionText;
+    [SerializeField] private RectTransform bombContainer; 
+
+    [Header("Configuration des Fils (Mettre 4)")]
+    [SerializeField] private Wire[] wires;
+
+    private int wiresLeftToCut = 0;
+    private bool isCompleted = false;
+
+    private void Awake()
+    {
+        for (int i = 0; i < wires.Length; i++)
+        {
+            int index = i;
+            wires[i].wireButton.onClick.RemoveAllListeners();
+            wires[i].wireButton.onClick.AddListener(() => OnWireCut(index));
+            wires[i].wireButton.transition = Selectable.Transition.None;
+        }
+    }
+
+    private void OnEnable()
+    {
+        SoundManager.Instance.PlaySound("TicTac");
+        
+        isCompleted = false;
+        wiresLeftToCut = 0;
+        List<Wire> requiredWires = new List<Wire>();
+
+        foreach (var wire in wires)
+        {
+            wire.isCut = false;
+            wire.mustBeCut = false;
+            wire.wireImage.sprite = wire.uncutSprite;
+        }
+
+        int numberOfWiresToCut = Random.Range(1, 4); 
+        
+        List<int> availableIndices = new List<int>();
+        for (int i = 0; i < wires.Length; i++) availableIndices.Add(i);
+
+        for (int i = 0; i < numberOfWiresToCut; i++)
+        {
+            int rand = Random.Range(0, availableIndices.Count);
+            int chosenIndex = availableIndices[rand];
+            availableIndices.RemoveAt(rand);
+
+            wires[chosenIndex].mustBeCut = true;
+            requiredWires.Add(wires[chosenIndex]);
+            wiresLeftToCut++;
+        }
+
+        instructionText.color = Color.white; 
+        
+        if (requiredWires.Count == 1)
+        {
+            instructionText.text = $"CUT THE WIRE {GetColoredWord(requiredWires[0])} !";
+        }
+        else if (requiredWires.Count == 2)
+        {
+            instructionText.text = $"CUT THE WIRE {GetColoredWord(requiredWires[0])} AND {GetColoredWord(requiredWires[1])} !";
+        }
+        else if (requiredWires.Count == 3)
+        {
+            instructionText.text = $"CUT {GetColoredWord(requiredWires[0])}, {GetColoredWord(requiredWires[1])} AND {GetColoredWord(requiredWires[2])} !";
+        }
+    }
+
+    private string GetColoredWord(Wire wire)
+    {
+        string hexColor = ColorUtility.ToHtmlStringRGB(wire.textColor);
+        return $"<color=#{hexColor}>{wire.colorName}</color>";
+    }
+
+    private void OnWireCut(int index)
+    {
+        if (isCompleted || wires[index].isCut) return;
+        
+        SoundManager.Instance.PlaySound("Cut");
+
+        Wire clickedWire = wires[index];
+        clickedWire.isCut = true;
+        clickedWire.wireImage.sprite = clickedWire.cutSprite;
+
+        clickedWire.wireImage.rectTransform.DOPunchScale(Vector3.one * 0.2f, 0.2f);
+
+        if (clickedWire.mustBeCut)
+        {
+            wiresLeftToCut--;
+            if (wiresLeftToCut <= 0)
+            {
+                CompleteMiniGame();
+            }
+        }
+        else
+        {
+            WrongWireCut();
+        }
+    }
+
+    private void WrongWireCut()
+    {
+        isCompleted = true; 
+        
+        instructionText.text = "ERROR! WRONG THREAD!";
+        instructionText.color = Color.red;
+
+        bombContainer.DOShakePosition(0.5f, 20f, 20).OnComplete(() => 
+        {
+            OnEnable();
+        });
+    }
+
+    private void CompleteMiniGame()
+    {
+        SoundManager.Instance.StopAllSounds();
+        
+        isCompleted = true;
+
+        instructionText.text = "BOMB DEFUSED!";
+        instructionText.color = Color.green;
+
+        CrisisManager.Instance?.ResolveCrisis(minigameID);
+
+        DOVirtual.DelayedCall(1.0f, () =>
+        {
+            MinigameManager.Instance?.CloseMinigame(minigameID);
+        });
+    }
+}
